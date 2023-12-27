@@ -1,5 +1,7 @@
 package com.guangjian.gtool.util;
 
+import cn.hutool.core.util.StrUtil;
+
 import java.util.regex.Pattern;
 
 /**
@@ -12,8 +14,6 @@ public class HexUtils {
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
 
     private static final String HEX_PATTERN = "^[0-9a-fA-F]+$";
-
-    public static final String EMPTY = "";
 
     public static String calculateChecksum(String hexString) {
         if (!isHexString(hexString)) {
@@ -48,10 +48,14 @@ public class HexUtils {
         return bytes;
     }
 
-
-    public static String toHexString(int num, int len) {
+    /**
+     * @param num      待转数字
+     * @param byteSize 字节数
+     * @return /
+     */
+    public static String toHexString(int num, int byteSize) {
         String hexString = Integer.toHexString(num);
-        return padZero(hexString, len * 2);
+        return padZero(hexString, byteSize * 2);
     }
 
 
@@ -102,59 +106,7 @@ public class HexUtils {
             checksum %= 256;
         }
         String hexString = Integer.toHexString(checksum);
-        return fillBefore(hexString, '0', 2);
-    }
-
-
-    /**
-     * 将已有字符串填充为规定长度，如果已有字符串超过这个长度则返回这个字符串<br>
-     * 字符填充于字符串前
-     *
-     * @param str        被填充的字符串
-     * @param filledChar 填充的字符
-     * @param len        填充长度
-     * @return 填充后的字符串
-     */
-    public static String fillBefore(String str, char filledChar, int len) {
-        return fill(str, filledChar, len, true);
-    }
-
-    /**
-     * 将已有字符串填充为规定长度，如果已有字符串超过这个长度则返回这个字符串
-     *
-     * @param str        被填充的字符串
-     * @param filledChar 填充的字符
-     * @param len        填充长度
-     * @param isPre      是否填充在前
-     * @return 填充后的字符串
-     */
-    public static String fill(String str, char filledChar, int len, boolean isPre) {
-        final int strLen = str.length();
-        if (strLen > len) {
-            return str;
-        }
-
-        String filledStr = repeat(filledChar, len - strLen);
-        return isPre ? filledStr.concat(str) : str.concat(filledStr);
-    }
-
-    /**
-     * 重复某个字符
-     *
-     * @param c     被重复的字符
-     * @param count 重复的数目，如果小于等于0则返回""
-     * @return 重复字符字符串
-     */
-    public static String repeat(char c, int count) {
-        if (count <= 0) {
-            return EMPTY;
-        }
-
-        char[] result = new char[count];
-        for (int i = 0; i < count; i++) {
-            result[i] = c;
-        }
-        return new String(result);
+        return StrUtil.fillBefore(hexString, '0', 2);
     }
 
     public static int bcdHexStringToDecimal(String hexStr) {
@@ -197,6 +149,14 @@ public class HexUtils {
         }
 
         return reversedBuilder.toString();
+    }
+
+    public static float hexToFloat(String hexString) {
+        // 将十六进制字符串解析为整数
+        int intValue = Integer.parseInt(hexString, 16);
+
+        // 使用 Float.intBitsToFloat 将整数转换为浮点数
+        return Float.intBitsToFloat(intValue);
     }
 
     public static String operateOnHexString(String hexString, int operand, boolean isAddition) {
@@ -293,7 +253,7 @@ public class HexUtils {
     }
 
     public static void main(String[] args) {
-        String s = calModbusCRC("030327510006");
+        String s = calculateChecksum("68000000006470680103471200");
         System.out.println(s);
     }
 }
