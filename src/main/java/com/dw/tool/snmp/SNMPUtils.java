@@ -1,5 +1,6 @@
 package com.dw.tool.snmp;
 
+import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import org.snmp4j.CommunityTarget;
 import org.snmp4j.PDU;
@@ -13,7 +14,6 @@ import org.snmp4j.util.DefaultPDUFactory;
 import org.snmp4j.util.TreeEvent;
 import org.snmp4j.util.TreeUtils;
 
-import javax.annotation.PreDestroy;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

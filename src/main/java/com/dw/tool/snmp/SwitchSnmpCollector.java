@@ -6,7 +6,6 @@ import org.snmp4j.event.ResponseEvent;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.VariableBinding;
 import org.snmp4j.util.TreeEvent;
-import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -19,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 2024/6/11 16:05
  */
 @Slf4j
-@Service
+//@Service
 public class SwitchSnmpCollector {
 
     private final SNMPUtils snmpUtils = SNMPUtils.getInstance();
