@@ -1,0 +1,5 @@
+EMQX_IP=100.65.105.15
+SQL_TEMPLATE=update aibox.t_aibox_devinfo set real_sn = '{sn}' where bord_ip = '{ip}';
+OUTPUT_FILE=output.sql
+USERNAME=admin
+PASSWORD=public
