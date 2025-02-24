@@ -1,0 +1,19 @@
+SQL_TEMPLATE=update aibox.t_aibox_devinfo set real_sn = '{sn}' where bord_ip = '{ip}';
+EMQX_IP=100.65.105.15
+EMQX_USERNAME=admin
+EMQX_PASSWORD=public
+
+OUTPUT_FILE=output.sql
+# Mysql 配置
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+MYSQL_DB=your_database
+
+# Redis配置
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=Allen@rhy&0825#21
+REDIS_DB_LIST=0
+REDIS_KEY_PREFIX_LIST=key_prefix1,key_prefix2
+ENABLE_REDIS_CLEANUP=yes

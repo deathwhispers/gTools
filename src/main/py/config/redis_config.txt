@@ -1,4 +1,0 @@
-# 需要清理的数据库，多个用逗号分隔
-db_list=0
-# 需要清理的Key前缀，多个用逗号分隔
-#key_prefix_list=aibox

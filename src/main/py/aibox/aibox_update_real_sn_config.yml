@@ -1,0 +1,24 @@
+EMQX:
+  IP: 122.9.135.177
+  USERNAME: admin
+  PASSWORD: public
+  TIMEOUT: 5
+MYSQL:
+  HOST: 122.9.135.177
+  USERNAME: root
+  PASSWORD: password
+  DB: aibox
+  ENABLE_SQL_EXECUTION: false
+  CONNECT_TIMEOUT: 5
+REDIS:
+  HOST: 122.9.135.177
+  PORT: 6379
+  PASSWORD: Allen@rhy&0825#21
+  DB_LIST: [0, 1, 2]
+  KEY_PREFIX_LIST:
+    - key_prefix1
+    - key_prefix2
+  ENABLE_CLEANUP: true
+  CONNECT_TIMEOUT: 5
+SQL_TEMPLATE: update aibox.t_aibox_devinfo set real_sn = '{sn}' where bord_ip = '{ip}';
+OUTPUT_FILE: output.sql

@@ -1,0 +1,9 @@
+REDIS:
+  HOST: 122.9.135.177
+  PORT: 6379
+  PASSWORD: Allen@rhy&0825#21
+  DB_LIST: [0, 1, 2]
+  KEY_PREFIX_LIST:
+    - aibox
+  ENABLE_CLEANUP: true
+  CONNECT_TIMEOUT: 5
